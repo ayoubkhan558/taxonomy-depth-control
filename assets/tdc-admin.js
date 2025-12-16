@@ -60,12 +60,12 @@
 
                 var tax = tab.getAttribute('data-tax') || (tab.closest && tab.closest('li') && tab.closest('li').getAttribute('data-tax'));
                 if (!tax) return;
-                document.querySelectorAll('.tdc-tab').forEach(function (t) { t.classList.remove('active'); });
-                document.querySelectorAll('.tdc-tab-panel').forEach(function (p) { p.classList.remove('active'); });
-                tab.classList.add('active');
+                document.querySelectorAll('.tdc-tab').forEach(function (t) { t.classList.remove('nav-tab-active'); });
+                document.querySelectorAll('.tdc-tab-panel').forEach(function (p) { p.classList.remove('nav-tab-active'); });
+                tab.classList.add('nav-tab-active');
                 var panel = document.querySelector('#tdc-tab-' + tax);
                 if (panel) {
-                    panel.classList.add('active');
+                    panel.classList.add('nav-tab-active');
                     var depthInput = panel.querySelector('input[name$="[depth]"]');
                     if (depthInput) {
                         depthInput.dispatchEvent(new Event('input'));
@@ -140,35 +140,35 @@
 
             var labels = window.tdcSettings.labels[current];
 
-                // Iterate rows instead of relying on a separate Level column
-                document.querySelectorAll('table.wp-list-table tbody tr').forEach(function (tr) {
-                    if (!tr || !tr.classList) return;
+            // Iterate rows instead of relying on a separate Level column
+            document.querySelectorAll('table.wp-list-table tbody tr').forEach(function (tr) {
+                if (!tr || !tr.classList) return;
 
-                    var match = Array.prototype.slice
-                        .call(tr.classList)
-                        .map(function (c) { return c.match(/^level-(\d+)$/); })
-                        .filter(Boolean)[0];
+                var match = Array.prototype.slice
+                    .call(tr.classList)
+                    .map(function (c) { return c.match(/^level-(\d+)$/); })
+                    .filter(Boolean)[0];
 
-                    var depth = match ? parseInt(match[1], 10) : 0;
-                        var label = labels[depth];
-                        var showFlag = (window.tdcSettings.showLabel && window.tdcSettings.showLabel[current]) ? true : false;
+                var depth = match ? parseInt(match[1], 10) : 0;
+                var label = labels[depth];
+                var showFlag = (window.tdcSettings.showLabel && window.tdcSettings.showLabel[current]) ? true : false;
 
-                        // remove any existing badge first
-                        var nameCell = tr.querySelector('td.name.column-name');
-                        if (nameCell) {
-                            var existing = nameCell.querySelector('.tdc-level-badge');
-                            if (existing) existing.remove();
-                        }
+                // remove any existing badge first
+                var nameCell = tr.querySelector('td.name.column-name');
+                if (nameCell) {
+                    var existing = nameCell.querySelector('.tdc-level-badge');
+                    if (existing) existing.remove();
+                }
 
-                        // Only add badge if setting enabled and label exists
-                        if (showFlag && label && nameCell) {
-                            var badge = document.createElement('span');
-                            badge.className = 'tdc-level-badge';
-                            badge.textContent = label;
-                            var strong = nameCell.querySelector('strong');
-                            (strong || nameCell).appendChild(badge);
-                        }
-                });
+                // Only add badge if setting enabled and label exists
+                if (showFlag && label && nameCell) {
+                    var badge = document.createElement('span');
+                    badge.className = 'tdc-level-badge';
+                    badge.textContent = label;
+                    var strong = nameCell.querySelector('strong');
+                    (strong || nameCell).appendChild(badge);
+                }
+            });
         }
 
         applyLevelLabels();
@@ -176,15 +176,15 @@
         // Hide header and cells for configured hidden columns (fallback if CSS didn't apply)
         function applyHideColumns() {
             var current = window.tdcSettings.currentTax;
-            if ( ! current || ! window.tdcSettings.hideColumns || ! window.tdcSettings.hideColumns[current] ) return;
+            if (!current || !window.tdcSettings.hideColumns || !window.tdcSettings.hideColumns[current]) return;
             var flags = window.tdcSettings.hideColumns[current];
-            if ( flags.description ) {
+            if (flags.description) {
                 document.querySelectorAll('.edit-tags-php thead th.column-description, .edit-tags-php thead th#description, .edit-tags-php tfoot th.column-description, .edit-tags-php tfoot th#description, .edit-tags-php td.column-description').forEach(function (el) { el.style.display = 'none'; });
             }
-            if ( flags.slug ) {
+            if (flags.slug) {
                 document.querySelectorAll('.edit-tags-php thead th.column-slug, .edit-tags-php thead th#slug, .edit-tags-php tfoot th.column-slug, .edit-tags-php tfoot th#slug, .edit-tags-php td.column-slug').forEach(function (el) { el.style.display = 'none'; });
             }
-            if ( flags.count ) {
+            if (flags.count) {
                 document.querySelectorAll('.edit-tags-php thead th.column-posts, .edit-tags-php thead th#posts, .edit-tags-php tfoot th.column-posts, .edit-tags-php tfoot th#posts, .edit-tags-php td.column-posts').forEach(function (el) { el.style.display = 'none'; });
             }
         }

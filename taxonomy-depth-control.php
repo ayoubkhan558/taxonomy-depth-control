@@ -2,8 +2,8 @@
 /**
  * Plugin Name: Taxonomy Depth Control
  * Description: Control how many depth levels can be created or selected for hierarchical taxonomies.
- * Version: 0.1.0
- * Author: Copilot
+ * Version: 1.0.0
+ * Author: Ayoub Khan
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: taxonomy-depth-control
@@ -247,7 +247,7 @@ final class TDC_Plugin {
             <ul class="tdc-tab-list nav-tab-wrapper" role="tablist">
                 <?php $first = true; foreach ( $taxonomies as $taxonomy => $obj ): ?>
                 <li role="tab" tabindex="0" class="" data-tax="<?php echo esc_attr( $taxonomy ); ?>">
-                    <button type="button" data-tax="<?php echo esc_attr( $taxonomy ); ?>" class="tdc-tab nav-tab <?php echo $first ? 'active nav-tab-active' : ''; ?>">
+                    <button type="button" data-tax="<?php echo esc_attr( $taxonomy ); ?>" class="tdc-tab nav-tab <?php echo $first ? 'nav-tab-active' : ''; ?>">
                         <?php echo esc_html( $obj->labels->name ); ?>
                     </button>
                 </li>
