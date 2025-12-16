@@ -1,0 +1,165 @@
+/* Styles for Taxonomy Depth Control settings */
+.tdc-tax-card {
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    h3 {
+        margin: 0 0 8px 0;
+        font-size: 15px;
+    }
+}
+
+.tdc-settings-row {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+
+    label {
+        margin-right: 0.5rem;
+    }
+}
+
+.tdc-depth-input {
+    width: 6rem;
+}
+
+.tdc-label-row {
+    margin-top: 0.5rem;
+}
+
+.tdc-level-labels {
+    margin-top: 8px;
+}
+
+.tdc-label-inputs {
+    input[type="text"] {
+        width: 22rem;
+        max-width: 100%;
+    }
+}
+
+.tdc-preview {
+    color: #6b6b6b;
+    font-style: italic;
+    margin-top: 8px;
+}
+
+.tdc-small {
+    font-size: 13px;
+    color: #666;
+}
+
+.tdc-level-badge {
+    display: inline-flex;
+    width: fit-content;
+    font-style: italic;
+    color: #333;
+    line-height: 1;
+    margin-left: 0.5rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.25rem;
+    background-color: #f4511e;
+}
+
+/* Level styles */
+.level-0 {
+    .tdc-level-badge {
+        background-color: #adff2f;
+    }
+
+    // greenyellow
+}
+
+.level-1 {
+    .tdc-level-badge {
+        background-color: #c7f000;
+    }
+}
+
+.level-2 {
+    .tdc-level-badge {
+        background-color: #e6f000;
+    }
+}
+
+.level-3 {
+    .tdc-level-badge {
+        background-color: #fff176;
+    }
+}
+
+.level-4 {
+    .tdc-level-badge {
+        background-color: #ffd54f;
+    }
+}
+
+.level-5 {
+    .tdc-level-badge {
+        background-color: #ffb74d;
+    }
+}
+
+.level-6 {
+    .tdc-level-badge {
+        background-color: #ff8a65;
+    }
+}
+
+.level-7 {
+    .tdc-level-badge {
+        background-color: #ff7043;
+    }
+}
+
+.level-8 {
+    .tdc-level-badge {
+        background-color: #f4511e;
+        color: #fff;
+    }
+}
+
+.level-9 {
+    .tdc-level-badge {
+        background-color: #d32f2f;
+        color: #fff;
+    }
+}
+
+
+/* Tabs for settings */
+.tdc-tabs-wrapper {
+    .tdc-tab-list {
+        li {
+            display: inline-flex;
+            margin-bottom: 0;
+        }
+
+        .tdc-tab {
+            cursor: pointer;
+
+
+            &.active {}
+        }
+
+    }
+
+    .tdc-tab-panel {
+        display: none;
+        padding: 12px;
+        border: 1px solid #e1e1e1;
+        border-top: none;
+        background: transparent;
+
+        &.active {
+            display: block;
+        }
+    }
+}
