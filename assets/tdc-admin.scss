@@ -158,8 +158,8 @@
         border-top: none;
         background: transparent;
 
-        &.active {
-            display: block;
+        &.nav-panel-active {
+            display: block !important;
         }
     }
 }

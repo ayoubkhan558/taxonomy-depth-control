@@ -61,11 +61,11 @@
                 var tax = tab.getAttribute('data-tax') || (tab.closest && tab.closest('li') && tab.closest('li').getAttribute('data-tax'));
                 if (!tax) return;
                 document.querySelectorAll('.tdc-tab').forEach(function (t) { t.classList.remove('nav-tab-active'); });
-                document.querySelectorAll('.tdc-tab-panel').forEach(function (p) { p.classList.remove('nav-tab-active'); });
+                document.querySelectorAll('.tdc-tab-panel').forEach(function (p) { p.classList.remove('nav-panel-active'); });
                 tab.classList.add('nav-tab-active');
                 var panel = document.querySelector('#tdc-tab-' + tax);
                 if (panel) {
-                    panel.classList.add('nav-tab-active');
+                    panel.classList.add('nav-panel-active');
                     var depthInput = panel.querySelector('input[name$="[depth]"]');
                     if (depthInput) {
                         depthInput.dispatchEvent(new Event('input'));

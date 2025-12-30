@@ -277,7 +277,7 @@ final class TDC_Plugin
                             $hide_count = is_array($s) && !empty($s['hide_count']);
                             ?>
                             <div id="tdc-tab-<?php echo esc_attr($taxonomy); ?>"
-                                class="tdc-tab-panel <?php echo $first ? 'active' : ''; ?>"
+                                class="tdc-tab-panel <?php echo $first ? 'nav-panel-active' : ''; ?>"
                                 data-tax="<?php echo esc_attr($taxonomy); ?>">
                                 <div class="tdc-tax-card">
                                     <h3><?php echo esc_html($obj->labels->name); ?></h3>
